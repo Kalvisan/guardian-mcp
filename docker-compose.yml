@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: guardian-mcp:latest
+    image: kalmars/guardian-mcp:latest
     container_name: guardian-mcp
     restart: unless-stopped
 

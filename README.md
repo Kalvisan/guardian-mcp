@@ -6,15 +6,15 @@ GuardianMCP is an MCP (Model Context Protocol) server that scans project depende
 
 ## Features
 
-- 🛡️ **Automatic vulnerability scanning** for npm and Composer dependencies
-- 🚨 **Real-time alerts** for CRITICAL and HIGH severity issues
-- 🎯 **Three scan modes**: full, summary, critical-high-only
-- 🔄 **Auto-trigger support** via IDE rules (on install, commit, build)
-- 🌍 **Multi-language keyword detection** (English, Latvian, French, Spanish, German, Russian, etc.)
-- 🐳 **Docker support** for containerized deployment
-- 📊 **Detailed reports** with remediation guidance and CVE links
-- ⚡ **Fast & lightweight** using OSV.dev API
-- 🔒 **Secure by design** - 0 vulnerabilities, minimal dependencies
+- **Automatic vulnerability scanning** for npm and Composer dependencies
+- **Real-time alerts** for CRITICAL and HIGH severity issues
+- **Three scan modes**: full, summary, critical-high-only
+- **Auto-trigger support** via IDE rules (on install, commit, build)
+- **Multi-language keyword detection** (English, Latvian, French, Spanish, German, Russian, etc.)
+- **Docker support** for containerized deployment
+- **Detailed reports** with remediation guidance and CVE links
+- **Fast & lightweight** using OSV.dev API
+- **Secure by design** - 0 vulnerabilities, minimal dependencies
 
 ## Security Status
 
@@ -22,11 +22,11 @@ GuardianMCP is an MCP (Model Context Protocol) server that scans project depende
 ![Node.js](https://img.shields.io/badge/node-%3E%3D20.0.0-brightgreen)
 ![Dependencies](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen)
 
-✅ **Latest security audit:** All dependencies scanned, 0 vulnerabilities found
-✅ **Node.js:** Latest LTS (22.x) with security updates
-✅ **Regular updates:** Weekly dependency checks and monthly security reviews
+**Latest security audit:** All dependencies scanned, 0 vulnerabilities found
+**Node.js:** Latest LTS (22.x) with security updates
+**Regular updates:** Weekly dependency checks and monthly security reviews
 
-See [SECURITY.md](SECURITY.md) for our security policy and audit details.
+See [SECURITY.md](SECURITY.md) for detailed security policy and audit information.
 
 ## Quick Start
 
@@ -50,7 +50,7 @@ npm run build
 ### Option 3: Docker
 
 ```bash
-docker pull guardian-mcp:latest
+docker pull kalmars/guardian-mcp:latest
 # or
 docker-compose up -d
 ```
@@ -62,7 +62,7 @@ docker-compose up -d
 Click on your IDE to see setup instructions:
 
 <details>
-<summary><b>🎯 Cursor Editor (Recommended)</b></summary>
+<summary><b>Cursor Editor (Recommended)</b></summary>
 
 ### Cursor Setup
 
@@ -138,7 +138,7 @@ GuardianMCP will automatically scan your dependencies!
 </details>
 
 <details>
-<summary><b>💻 Visual Studio Code</b></summary>
+<summary><b>Visual Studio Code</b></summary>
 
 ### VS Code Setup
 
@@ -195,7 +195,7 @@ Reload window: `Cmd/Ctrl + Shift + P` → "Reload Window"
 </details>
 
 <details>
-<summary><b>🤖 Claude Desktop</b></summary>
+<summary><b>Claude Desktop</b></summary>
 
 ### Claude Desktop Setup
 
@@ -262,7 +262,7 @@ Completely quit and reopen Claude Desktop.
 </details>
 
 <details>
-<summary><b>🌊 Windsurf Editor</b></summary>
+<summary><b>Windsurf Editor</b></summary>
 
 ### Windsurf Setup
 
@@ -310,7 +310,7 @@ Reload the editor to activate GuardianMCP.
 </details>
 
 <details>
-<summary><b>⚡ Zed Editor</b></summary>
+<summary><b>Zed Editor</b></summary>
 
 ### Zed Setup
 
@@ -352,7 +352,7 @@ Reload the editor.
 </details>
 
 <details>
-<summary><b>🐳 Docker Setup (Any IDE)</b></summary>
+<summary><b>Docker Setup (Any IDE)</b></summary>
 
 ### Docker Setup
 
@@ -393,7 +393,7 @@ In your IDE's MCP configuration, use:
 1. **Build the image:**
 
 ```bash
-docker build -t guardian-mcp:latest .
+docker build -t kalmars/guardian-mcp:latest .
 ```
 
 2. **Run the container:**
@@ -401,7 +401,7 @@ docker build -t guardian-mcp:latest .
 ```bash
 docker run -d --name guardian-mcp \
   -v /path/to/your/projects:/projects:ro \
-  guardian-mcp:latest
+  kalmars/guardian-mcp:latest
 ```
 
 3. **Configure your IDE:**
@@ -466,7 +466,7 @@ docker stop guardian-mcp && docker rm guardian-mcp
 </details>
 
 <details>
-<summary><b>🔧 Other IDEs / Custom Setup</b></summary>
+<summary><b>Other IDEs / Custom Setup</b></summary>
 
 ### Generic MCP Setup
 
@@ -588,7 +588,7 @@ Scan for critical vulnerabilities only (scan_mode="critical-high-only")
 
 ## Scan Modes Explained
 
-### 🔍 `full` Mode
+### `full` Mode
 **Best for:** Manual security audits, comprehensive reviews
 
 Shows ALL vulnerabilities with complete details:
@@ -612,7 +612,7 @@ Shows ALL vulnerabilities with complete details:
 ...
 ```
 
-### 📊 `summary` Mode
+### `summary` Mode
 **Best for:** Quick health checks, CI/CD dashboards
 
 Shows only vulnerability counts:
@@ -632,7 +632,7 @@ Shows only vulnerability counts:
 Run with scan_mode="full" for details.
 ```
 
-### 🎯 `critical-high-only` Mode
+### `critical-high-only` Mode
 **Best for:** Auto-scans, automated monitoring (RECOMMENDED for rules)
 
 Shows detailed info for CRITICAL/HIGH, counts others:
@@ -759,12 +759,12 @@ Copy these to:
 
 2. **Verify build succeeded:**
    ```bash
-   docker build -t guardian-mcp:latest .
+   docker build -t kalmars/guardian-mcp:latest .
    ```
 
 3. **Test manually:**
    ```bash
-   docker run -it guardian-mcp:latest
+   docker run -it kalmars/guardian-mcp:latest
    ```
 
 4. **Check health:**
@@ -793,41 +793,16 @@ Copy these to:
 
 </details>
 
-## Development
-
-### Local Development
-
-```bash
-git clone https://github.com/Kalvisan/guardian-mcp.git
-cd guardian-mcp
-npm install
-npm run watch  # Auto-recompile on changes
-```
-
-### Testing Changes
-
-```bash
-npm run build
-node dist/index.js  # Test locally
-```
-
-### Adding New Ecosystems
-
-1. Create `checkXXXJson()` function in `src/index.ts`
-2. Follow pattern of `checkPackageJson()` or `checkComposerJson()`
-3. Update `file_type` enum and descriptions
-4. Use appropriate OSV.dev ecosystem name
-
 ## Contributing
 
 Contributions are welcome! Areas for improvement:
 
-- 🌍 Additional ecosystem support (Python, Go, Rust, etc.)
-- 🔧 Better version range parsing
-- ⚡ Caching to reduce API calls
-- 📱 IDE-specific optimizations
-- 🧪 Test coverage
-- 📚 Documentation improvements
+- Additional ecosystem support (Python, Go, Rust, etc.)
+- Better version range parsing
+- Caching to reduce API calls
+- IDE-specific optimizations
+- Test coverage
+- Documentation improvements
 
 ## License
 
@@ -835,21 +810,21 @@ MIT - See [LICENSE](LICENSE) file
 
 ## Resources
 
-- 🔗 [OSV.dev Database](https://osv.dev/)
-- 📖 [OSV.dev API Docs](https://osv.dev/docs/)
-- 🛠️ [Model Context Protocol](https://modelcontextprotocol.io/)
-- 📦 [MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk)
-- 📝 [Cursor Documentation](https://cursor.sh/docs)
-- 💻 [VS Code MCP Guide](https://code.visualstudio.com/)
+- [OSV.dev Database](https://osv.dev/)
+- [OSV.dev API Docs](https://osv.dev/docs/)
+- [Model Context Protocol](https://modelcontextprotocol.io/)
+- [MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk)
+- [Cursor Documentation](https://cursor.sh/docs)
+- [VS Code MCP Guide](https://code.visualstudio.com/)
 
 ## Security Note
 
 GuardianMCP helps identify known vulnerabilities but is **not a substitute for**:
-- ✅ Comprehensive security audits
-- ✅ Penetration testing
-- ✅ Secure coding practices
-- ✅ Regular dependency updates
-- ✅ Security training
+- Comprehensive security audits
+- Penetration testing
+- Secure coding practices
+- Regular dependency updates
+- Security training
 
 **Always review and test dependency updates before deploying to production.**
 
