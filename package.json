@@ -1,0 +1,42 @@
+{
+  "name": "guardian-mcp",
+  "version": "1.0.0",
+  "description": "GuardianMCP - Your vigilant security companion for detecting vulnerabilities in project dependencies",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "guardian-mcp": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "start": "node dist/index.js",
+    "audit": "npm audit",
+    "audit:fix": "npm audit fix",
+    "check:updates": "npm outdated",
+    "security": "npm audit && npm outdated"
+  },
+  "keywords": ["mcp", "security", "vulnerability", "audit", "osv", "dependencies", "scanner"],
+  "author": "Kalvisan",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kalvisan/guardian-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Kalvisan/guardian-mcp/issues"
+  },
+  "homepage": "https://github.com/Kalvisan/guardian-mcp#readme",
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=9.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.23.0",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.1",
+    "typescript": "^5.9.3"
+  }
+}

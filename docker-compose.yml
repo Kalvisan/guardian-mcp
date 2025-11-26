@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  guardian-mcp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: guardian-mcp:latest
+    container_name: guardian-mcp
+    restart: unless-stopped
+
+    # MCP servers use stdio, so we use stdin_open and tty
+    stdin_open: true
+    tty: true
+
+    # Environment variables (optional)
+    environment:
+      - NODE_ENV=production
+
+    # Mount project directory for scanning (optional)
+    # Uncomment and adjust path if you want to scan specific projects
+    # volumes:
+    #   - /path/to/your/projects:/projects:ro
+
+    # Resource limits (optional)
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 512M
+        reservations:
+          cpus: '0.5'
+          memory: 256M
+
+    # Logging configuration
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
